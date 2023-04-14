@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>Taylor's Version</title> <br>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Crimson+Text&family=Dancing+Script&family=Manrope&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&family=Manrope&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic" rel="stylesheet" />
+        
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			display:flex;
+			flex-direction:column;
+			min-height: -1vh;               
+		}
+		
+		main{
+            display :flex;
+        }
+
+		h1
+        {
+            margin: 0;            
+		}
+
+        p 
+        {
+            color: rgb(17, 17, 17);
+        }
+        footer{
+            Font-family: 'Crimson Text', serif;
+        }
+        .right
+        {
+            font-family:'Manrope', sans-serif ;
+            width : 50%;
+            display :flex;
+            flex-direction: column;
+            text-align: center;
+            margin-left: 55%;
+        }
+
+        .left
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            background-color: rgb(204, 202, 202);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 15px;
+        }
+
+        .lyrics
+        {
+            text-align: center;
+            display: flex;
+            row-gap: 10px;
+        }
+        .title
+        {
+            display: flex;
+            color :rgb(99, 99, 99); 
+            justify-content: center;
+            font-size:x-large;
+            padding-top: 0%;
+        }
+        
+        .slide-container {
+            width: 100%;
+            height:100%;
+            display: flex;
+        }
+
+        .center-top 
+        {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100%;
+        }
+
+        .slides{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 400px;
+            font-size: xx-small;
+        }
+
+        .image-slider{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 1s;
+            
+        }
+        
+        .slides-div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+        }
+
+        .img{
+            position: relative;
+            width: 140px;
+            object-fit: cover;
+            height: 200px;
+            transition: 0.5s;
+        }
+
+        .button {
+            position: absolute;
+            width: 140px;
+            height: 200px;
+            transition: 0.5s;
+            background-color: rgba(67, 67, 151, 0.2);
+        }
+
+        #slider-span1:target ~ .image-slider #img1,
+        #slider-span1:target ~.image-slider #button-1{
+            width:280px;
+            height: 385px;
+            background-color: transparent;
+        } 
+        #slider-span2:target ~ .image-slider #img2,
+        #slider-span2:target ~.image-slider #button-2{
+            width:280px;
+            height: 385px;
+            background-color: transparent;
+        }
+        #slider-span3:target ~ .image-slider #img3,
+        #slider-span3:target ~.image-slider #button-3{
+            width:280px;
+            height: 385px;
+            background-color: transparent;
+        }
+
+        #slider-span1:target ~.image-slider{
+            left:20%;
+        }
+        #slider-span2:target ~.image-slider{
+            left:0%;
+        }
+        #slider-span3:target ~.image-slider{
+            left:-20%;
+        }
+        audio
+        { 
+            margin:auto;
+            padding: 5px;
+        }
+        audio::-webkit-media-controls-play-button{
+            background-color:  #918f8c;
+            border-radius: 50%;
+        }
+        audio::-webkit-media-controls-timeline{
+            background-color:  #c2ac8c;
+            border-radius: 40px;
+        }
+        audio::-webkit-media-controls-volume-slider{
+            background-color:  #b7b5b2;
+            border-radius: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+
+        }
+	</style>
+</head>
+        <body style="display: flex; justify-content: center;"> 
+            <div class = "left">
+                <a  href="https://www.taylorswift.com/" >Taylor Swift</a>
+                <h1 style="font-family: 'Courgette', sans-serif; font-size: 40PX;">
+                   Folklore
+                </h1>
+                <div class="slides">
+                    <div class="slide-container">
+                        <span class="slider-span" id="slider-span1"></span>
+                        <span class="slider-span" id="slider-span2"></span>
+                        <span class="slider-span" id="slider-span3"></span>
+                        <div class="image-slider">
+                            <div class="slides-div" id="slide-1">
+                                <img src="pic1.jpg" alt="" class="img" id="img1">
+                                <a href="#slider-span1" class="button" id="button-1"></a>
+                            </div>
+                            <div class="slides-div" id="slide-2">
+                                <img src="pic2.jpg" alt="" class="img" id="img2">
+                                <a href="#slider-span2" class="button" id="button-2"></a>
+                            </div>
+                            <div class="slides-div" id="slide-3">
+                                <img src="pic3.jpg" alt="" class="img" id="img3">
+                                <a href="#slider-span3" class="button" id="button-3"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-family: 'Poppins', sans-serif;">
+                        Accompanied by the release of her project written and recorded during the lockdown due <br> 
+                    to COVID-19, “cardigan” is the lead single from Taylor Swift’s eighth studio album, folklore. <br>
+
+                    “cardigan” is believed to be the first part of folklore’s “Teenage Love Triangle,” told from <br> 
+                    the point of view of Betty. The storyline is followed by “august” and “betty.” Swift <br>
+                    explained in a livechat the night of folklore’s release: <br>
+
+                    <p style="font-family: 'Poppins', sans-serif; ">
+                        Produced by <b> Aaron Dessner</b> <br>
+                        Release Date <b> July 24, 2020</b>
+                    </p>
+                </p>
+            </div>
+                <main>
+                <div class= "right">
+                    <div class= "title">
+                        <h1 class="lyrics" style="font-family: 'Courgette', sans-serif;"> Cardigan </h1>  
+                    </div>
+                    <audio src="Taylor Swift - cardigan (Official Lyric Video).mp3" controls loop></audio>
+                    <div class= "Lyrics">   
+                        <p style="font-family: 'Poppins', sans-serif;">
+                            [Verse 1]<br>
+                            Vintage tee, brand new phone<br>
+                            High heels on cobblestones<br>
+                            When you are young, they assume you know nothing<br>
+                            Sequin smile, black lipstick<br>
+                            Sensual politics<br>
+                            When you are young, they assume you know nothing<br><br>
+
+                            
+                            [Chorus]<br>
+                            But I knew you<br>
+                            Dancin' in your Levi's<br>
+                            Drunk under a streetlight, I<br>
+                            I knew you<br>
+                            Hand under my sweatshirt<br>
+                            Baby, kiss it better, I<br><br>
+
+                            [Refrain]<br>
+                            And when I felt like I was an old cardigan<br>
+                            Under someone's bed<br>
+                            You put me on and said I was your favorite<br><br>
+                            
+                            [Verse 2]<br>
+                            A friend to all is a friend to none<br>
+                            Chase two girls, lose the one<br>
+                            When you are young, they assume you know nothing<br><br>
+
+                            [Chorus]<br>
+                            But I knew you<br>
+                            Playing hide-and-seek and<br>
+                            Giving me your weekends, I<br>
+                            I knew you<br>
+                            Your heartbeat on the High Line<br>
+                            Once in twenty lifetimes, I<br><br>
+
+                            [Refrain]<br>
+                            And when I felt like I was an old cardigan<br>
+                            Under someone's bed<br>
+                            You put me on and said I was your favorite<br><br>
+
+                            [Bridge]<br>
+                            To kiss in cars and downtown bars<br>
+                            Was all we needed<br>
+                            You drew stars around my scars<br>
+                            But now I'm bleedin'<br><br>
+
+                            [Chorus]<br>
+                            'Cause I knew you<br>
+                            Steppin' on the last train<br>
+                            Marked me like a bloodstain, I<br>
+                            I knew you<br>
+                            Tried to change the ending<br>
+                            Peter losing Wendy, I<br>
+                            I knew you<br>
+                            Leavin' like a father<br>
+                            Running like water, I<br>
+                            And when you are young, they assume you know nothing<br><br>
+
+                            [Verse 3]<br>
+                            But I knew you'd linger like a tattoo kiss<br>
+                            I knew you'd haunt all of my what-ifs<br>
+                            The smell of smoke would hang around this long<br>
+                            'Cause I knew everything when I was young<br>
+                            I knew I'd curse you for the longest time<br>
+                            Chasin' shadows in the grocery line<br>
+                            I knew you'd miss me once the thrill expired<br>
+                            And you'd be standin' in my front porch light<br>
+                            And I knew you'd come back to me<br>
+                            You'd come back to me<br>
+                            And you'd come back to me<br>
+                            And you'd come back<br><br>
+
+                            [Refrain]<br>
+                            And when I felt like I was an old cardigan<br>
+                            Under someone's bed<br>
+                            You put me on and said I was your favorite</p><br>
+
+                       
+
+                    </div>
+                        <footer>
+                            <p style="color: black;">© 2023 lyyyyy | Taylor's Version (TV) | Combining Music, Lyrics, Sound, and Video</p>
+                        </footer>
+                    </div>
+                </main>
+            
+        </body>
+</html>   
